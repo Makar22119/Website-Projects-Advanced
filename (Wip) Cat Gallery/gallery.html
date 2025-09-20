@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Gallery</title>
+    <link rel="stylesheet" href="CSS/gallery.css">
+</head>
+<body>
+    <header id="header">
+        <nav class="nav-bar">
+            <img style="width:100px" src="logo.png" alt="logo">
+            <div class="empty-space"></div>
+            <button class="nav-but js-add-nav-but">Add</button>
+            <button class="nav-but js-remove-nav-but">Remove</button>
+        </nav>
+        <h1>Cat Gallery</h1>
+    </header>
+    <main id="main">
+        <div class="black-screen js-black-screen hide removed-black-screen" style="opacity: 100"></div>
+        <h2>Here are the cats you have:</h2>
+        <article class="gallery js-gallery"></article>
+
+        <form>
+            <fieldset class="add-cat-form js-add-cat-form hide removed-form">
+                <h2 style="grid-area: heading; font-size: 2rem">Add Your Cat</h2>
+
+                <div class="form" style="grid-area: form">
+                    <div class="label">
+                        <label for="name">Enter your cats name:</label>
+                        <input class="js-input-field" id="name" type="text" required>
+                    </div>
+                    <div class="label">
+                        <label for="breed">Enter your cats breed:</label>
+                        <input class="js-input-field" id="breed" type="text">
+                    </div>
+                    <div class="label">
+                        <label for="age">Enter your cats age:</label>
+                        <input class="js-input-field" id="age" type="number" min="1">
+                        <select class="js-select-input-field" id="age-time" style="margin-top: 10px">
+                            <option value="Years" selected>Years</option>
+                            <option value="Months">Months</option>
+                        </select>
+                    </div>
+                    <div class="label">
+                        <label for="image">Submit an image of your cat</label>
+                        <input class="js-input-field" id="image" type="url" placeholder="Put a URL link of the image (preferably 16/9)" required>
+                    </div>
+                    <p class="cat-added">New cat was <span style="color: var(--clr-green-hover);">added!</span></p>
+                </div>
+
+                <section class="cat-info-demo" style="grid-area: demo">
+                    <figure class="cat cat-demo">
+                        <img src="unknownCat.png" alt="" class="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3s3H05bE903kFzjv9b215Acep273c1CcFPg&amp;s">
+                        <figcaption class="cat-name">Unnamed</figcaption>
+                    </figure>
+                    <div class="about">
+                        <p class="breed-demo">Breed: Not Specified</p>
+                        <p class="age-demo">Age: Not Specified</p>
+                    </div>
+                    <button class="about-but" disabled>About</button>
+                    <button class="remove-but" disabled>Remove</button>
+                </section>
+                
+                <button type="submit" class="submit-cat-but js-submit-cat-but" style="grid-area: submit">Submit</button>
+                <button type="reset" class="cancel-submit-cat-but js-cancel-submit-cat-but" style="grid-area: cancel">Cancel</button>
+            </fieldset> 
+        </form>
+    </main>
+    <footer>
+        <img style="width:max(15vw, 150px)" src="logo.png" alt="logo">
+        <span class="footer-nav">
+           <a href="#header">Back to Top</a>
+           <a href="https://github.com/Pryanik-123" target="_blank">Github</a>
+           <h2 style="color: white">&copy;Pryanik123</h2>
+        </span>
+    </footer>
+    <script type="module" src="JS/Renders/renderGallery.js"></script>
+</body>
+</html>

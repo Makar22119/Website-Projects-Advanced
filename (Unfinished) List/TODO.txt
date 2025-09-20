@@ -1,0 +1,18 @@
+List Page:
+- make a remove button
+- make the add new button send you to the form page +
+- make a default list page with "no levels yet" type stuff +
+
+Welcome Page:
+- make a welcome page +
+- let the person make his own lists and save them
+
+Placement Page:
+- make a "change" button to change smth about the positions
+- make a page about a placement with all the data about a placement
+- let the user enter the page by clicking on a placement on the list
+
+AddNewPosition Page:
+- style it bruh
+
+do better styles in general

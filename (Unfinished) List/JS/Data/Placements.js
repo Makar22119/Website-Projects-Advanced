@@ -1,0 +1,1 @@
+export const placements = JSON.parse(localStorage.getItem('listPositions')) || []
