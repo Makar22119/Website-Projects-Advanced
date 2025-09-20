@@ -1,6 +1,6 @@
 const gallery = document.querySelector('.js-gallery');
 
-export function renderGallery(cats){
+export function renderGallery(cats, isRemoveButShowing){
     gallery.innerHTML = '';
     if (cats.length > 0){
         gallery.classList.add('non-empty')
@@ -15,7 +15,7 @@ export function renderGallery(cats){
                         <p class="age">Age: ${cat.age} ${cat.ageTime}</p>
                     </div>
                     <button class="about-but js-about-but">About</button>
-                    <button class="remove-but js-remove-but remove-but-animation" style="display: none;">Remove</button>
+                    <button class="remove-but js-remove-but remove-but-animation" style="display: ${isRemoveButShowing ? 'block' : 'none'}">Remove</button>
                 </section>`
         });
 
@@ -29,7 +29,7 @@ export function renderGallery(cats){
             but.addEventListener("click", () => {
                 cats.splice(index, 1);
                 localStorage.setItem('Gallery', JSON.stringify(cats));
-                renderGallery(cats);
+                renderGallery(cats, true);
             })
         });
     }
@@ -135,7 +135,7 @@ export function renderGalleryButtons(cats){
             cats.push(catDemoInfo);
 
             localStorage.setItem('Gallery', JSON.stringify(cats));
-            renderGallery(cats);
+            renderGallery(cats, false);
 
             /* Just more animation stuff */
             gallery.lastElementChild.classList.add('last-cat-info'); /* Cat card added animation */
