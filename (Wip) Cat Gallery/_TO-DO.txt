@@ -1,7 +1,5 @@
 TO DO NEXT:
 add button not being disabled when you press it again and the form animation blinking on closing, fix it
-
-remove button not working again for some reason
-fix the sizing of cat cards by limiting text field
 add a description panel for the form after you try to submit your cat
+
 make an about page for each cat
