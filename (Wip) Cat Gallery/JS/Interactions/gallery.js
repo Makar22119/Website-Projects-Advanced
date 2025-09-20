@@ -139,7 +139,20 @@ export function renderGalleryButtons(cats){
 
             /* Just more animation stuff */
             gallery.lastElementChild.classList.add('last-cat-info'); /* Cat card added animation */
+
+            catAddedText.innerHTML = `New cat was <span style="color: var(--clr-green-hover);">added!</span>`;
             catAddedText.classList.toggle('added-text'); /* "New cat was added" text animation */
+            
+            /* Button freeze */
+            submitButton.disabled = true; 
+            setTimeout(() =>{
+                catAddedText.classList.toggle('added-text');
+                submitButton.disabled = false;
+            }, 1500)
+        }
+        else {
+            catAddedText.innerHTML = `Name and image are <span style="color: red;">required</span>`;
+            catAddedText.classList.toggle('added-text'); /* "Info Required" text animation */
             
             /* Button freeze */
             submitButton.disabled = true; 
