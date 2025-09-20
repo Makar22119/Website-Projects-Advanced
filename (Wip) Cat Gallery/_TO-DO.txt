@@ -1,5 +1,4 @@
 TO DO NEXT:
-remove special characters for cat names (probably regex it)
 add button not being disabled when you press it again and the form animation blinking on closing, fix it
 
 remove button not working again for some reason

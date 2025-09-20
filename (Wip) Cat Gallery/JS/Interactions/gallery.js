@@ -164,10 +164,12 @@ export function renderGalleryButtons(cats){
     })
 
     document.querySelectorAll('.js-input-field').forEach(inputField => {
+        const regex = /[^\w\s]/gi;
+
         inputField.addEventListener('keyup', () => {
             catDemoCard.innerHTML = `<figure class="cat cat-demo">
                             <img src="${document.querySelector('#image').value || "unknownCat.png"}" alt="${document.querySelector('#name').value || "Unnamed"}" class="${document.querySelector('#image').value || "no-image"}">
-                            <figcaption class="cat-name">${document.querySelector('#name').value || "Unnamed"}</figcaption>
+                            <figcaption class="cat-name">${document.querySelector('#name').value.replace(regex, '') || "Unnamed"}</figcaption>
                         </figure>
                         <div class="about">
                             <p class="breed-demo">Breed: ${document.querySelector('#breed').value || "Not Specified"}</p>
