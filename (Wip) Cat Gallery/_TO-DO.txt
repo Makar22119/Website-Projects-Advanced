@@ -1,5 +1,5 @@
 TO DO NEXT:
-add button not being disabled when you press it again and the form animation blinking on closing, fix it
-add a description panel for the form after you try to submit your cat
+add button not being disabled when you press it again and the form animation blinking on closing because of it, fix it
 
+add a description panel for the form after you try to submit your cat
 make an about page for each cat

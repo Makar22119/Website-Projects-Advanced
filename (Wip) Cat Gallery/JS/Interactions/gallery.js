@@ -58,6 +58,7 @@ export function renderGalleryButtons(cats){
     const catAddedText = document.querySelector('.cat-added');
 
     const catDemoCard = document.querySelector('.cat-info-demo');
+    const regex = /[^\w\s]/gi;
     let isFormOpen = false;
 
     const hideFormToggle = () => {
@@ -121,12 +122,11 @@ export function renderGalleryButtons(cats){
         animations();
     })
     submitButton.addEventListener("click", button => {
-        const regex = /[^\w\s]/gi;
         const catDemoInfo = {
             img: document.querySelector('#image').value || "unknownCat.png",
-            name: (document.querySelector('#name').value.replace(regex, '').length > 9 ? document.querySelector('#name').value.replace(regex, '').slice(0, 9) + "..." : document.querySelector('#name').value.replace(regex, '')) || "Unnamed",
-            breed: (document.querySelector('#breed').value.replace(regex, '').length > 10 ? document.querySelector('#breed').value.replace(regex, '').slice(0, 10) + "..." : document.querySelector('#breed').value.replace(regex, '')) || "Not Specified",
-            age: document.querySelector('#age').value || "Not Specified",
+            name: (document.querySelector('#name').value.replace(regex, '').length > 15 ? document.querySelector('#name').value.replace(regex, '').slice(0, 9) + "..." : document.querySelector('#name').value.replace(regex, '')) || "Unnamed",
+            breed: (document.querySelector('#breed').value.replace(regex, '').length > 14 ? document.querySelector('#breed').value.replace(regex, '').slice(0, 10) + "..." : document.querySelector('#breed').value.replace(regex, '')) || "Not Specified",
+            age: (document.querySelector('#age').value.replace(regex, '').length > 8 ? document.querySelector('#age').value.replace(regex, '').slice(0, 8) + "..." : document.querySelector('#age').value.replace(regex, '')) || "Not Specified",
             ageTime: document.querySelector('#age').value !== "" ? document.querySelector('#age-time').value : ""
         };
 
@@ -165,23 +165,21 @@ export function renderGalleryButtons(cats){
     })
 
     document.querySelectorAll('.js-input-field').forEach(inputField => {
-        const regex = /[^\w\s]/gi;
-
         inputField.addEventListener('keyup', () => {
             catDemoCard.innerHTML = `<figure class="cat cat-demo">
                             <img src="${document.querySelector('#image').value || "unknownCat.png"}" alt="${document.querySelector('#name').value || "Unnamed"}" class="${document.querySelector('#image').value || "no-image"}">
-                            <figcaption class="cat-name">${(document.querySelector('#name').value.replace(regex, '').length > 9 ? document.querySelector('#name').value.replace(regex, '').slice(0, 9) + "..." : document.querySelector('#name').value.replace(regex, '')) || "Unnamed"}</figcaption>
+                            <figcaption class="cat-name">${(document.querySelector('#name').value.replace(regex, '').length > 15 ? document.querySelector('#name').value.replace(regex, '').slice(0, 9) + "..." : document.querySelector('#name').value.replace(regex, '')) || "Unnamed"}</figcaption>
                         </figure>
                         <div class="about">
-                            <p class="breed-demo">Breed: ${(document.querySelector('#breed').value.replace(regex, '').length > 10 ? document.querySelector('#breed').value.replace(regex, '').slice(0, 10) + "..." : document.querySelector('#breed').value.replace(regex, '')) || "Not Specified"}</p>
-                            <p class="age-demo">Age: ${document.querySelector('#age').value || "Not Specified"} ${document.querySelector('#age').value !== "" ? document.querySelector('#age-time').value : ""}</p>
+                            <p class="breed-demo">Breed: ${(document.querySelector('#breed').value.replace(regex, '').length > 14 ? document.querySelector('#breed').value.replace(regex, '').slice(0, 10) + "..." : document.querySelector('#breed').value.replace(regex, '')) || "Not Specified"}</p>
+                            <p class="age-demo">Age: ${(document.querySelector('#age').value.replace(regex, '').length > 8 ? document.querySelector('#age').value.replace(regex, '').slice(0, 8) + "..." : document.querySelector('#age').value.replace(regex, '')) || "Not Specified"} ${document.querySelector('#age').value !== "" ? document.querySelector('#age-time').value : ""}</p>
                         </div>
                         <button class="about-but" disabled>About</button>
                         <button class="remove-but" disabled>Remove</button>`;
         })
     })
     document.querySelector('.js-select-input-field').addEventListener("change", () => {
-        document.querySelector('.age-demo').innerHTML = `Age: ${document.querySelector('#age').value || "Not Specified"} 
-        ${document.querySelector('#age').value !== "" ? document.querySelector('#age-time').value : ""}`;
+        document.querySelector('.age-demo').innerHTML = `Age: ${(document.querySelector('#age').value.replace(regex, '').length > 8 ? document.querySelector('#age').value.replace(regex, '').slice(0, 8) + "..." : document.querySelector('#age').value.replace(regex, ''))} 
+        ${document.querySelector('#age').value.replace(regex, '') !== "" ? document.querySelector('#age-time').value : ""}`;
     })
 }
